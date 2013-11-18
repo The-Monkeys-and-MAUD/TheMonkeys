@@ -1,10 +1,12 @@
 registerTest ('Has Google Analytics', {
+
     setup: function() {
         this.sourceCode = this.page.source;
         this.analyticsMatchString = "ga.js";
         this.analyticsMatchDummyString = "UA-XXXXX-X";
     },
     load : function() {
+        alert('ga');
         this
         .test('Do we have a GA script tag?',function($) {
             notEqual(this.sourceCode.indexOf(this.analyticsMatchString),-1,'We have a google analytics script tag');
