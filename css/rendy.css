@@ -1,0 +1,14 @@
+
+body {
+    padding-left: 20px;
+}
+
+form > * {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#submit-button {
+    width: 20em;
+    height: 2em;
+}

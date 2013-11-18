@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>The Monkeys Test by Rendy Marsono</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,6 +14,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/rendy.css"> <!-- custom css -->
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -22,14 +23,101 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <p>Hello The Monkeys! This is Rendy Marsono.</p>
+        
+        <form name="the_monkeys" action="" method="get">
+            <label>Name
+                <input name="name" type="text" required>
+            </label>
+            <label>Surname
+                <input name="surname" type="text" required>
+            </label>
+            <label>Email address
+                <input name="email" type="text" required>
+            </label>
+            <label>Daytime contact number
+                <input name="contact" type="text" required>
+            </label>
+            <label>Address
+                <input name="address" type="text" required>
+            </label>
+            <label>Suburb
+                <input name="suburb" type="text" required>
+            </label>
+            <label>State
+                <select id="state" required>
+                    <option value="">Please select</option>
+                    <option value="ACT">ACT</option>
+                    <option value="NSW">NSW</option>
+                    <option value="NT">NT</option>
+                    <option value="QLD">QLD</option>
+                    <option value="SA">SA</option>
+                    <option value="TAS">TAS</option>
+                    <option value="VIC">VIC</option>
+                    <option value="WA">WA</option>
+                </select>
+            </label>
+            <label>Postcode
+                <input name="postcode" type="text" required>
+            </label>
+            <label>Enquiry type
+                <select id="enquiry_type" required>
+                    <option value="">Please select</option>
+                    <option value="general">General enquiry</option>
+                    <option value="feedback">Product feedback or enquiry</option>
+                    <option value="complaint">Product complaint</option>
+                </select>
+            </label>
+            <label>Product name
+                <input id="pr_name" name="pr_name" type="text">
+            </label>
+            <label>Product size
+                <input id="pr_size" name="pr_size" type="text">
+            </label>
+            <label>Use-by date
+                <input id="expiry" name="expiry" type="text">
+            </label>
+            <label>Batch code
+                <input id="batch_code" name="batch_code" type="text">
+            </label>
+            <label>Enquiry
+                <textarea name="enquiry"></textarea>
+            </label>
+
+            <button id="submit-button" type="submit" value="Submit">Submit</button>
+
+        </form>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        
+        <!-- form logic -->
+        <script>
+            var etype = document.getElementById('enquiry_type');
+            var pname = document.getElementById('pr_name');
+            var psize = document.getElementById('pr_size');
+            var exp = document.getElementById('expiry');
+            var bcode = document.getElementById('batch_code');
+            etype.addEventListener('change', makeOtherFieldsRequired, false);  
+            function makeOtherFieldsRequired(){  
+                if (etype.value == 'complaint') {
+                    pname.setAttribute('required');
+                    psize.setAttribute('required');
+                    exp.setAttribute('required');
+                    bcode.setAttribute('required');
+                }
+                else {
+                    pname.removeAttribute('required');
+                    psize.removeAttribute('required');
+                    exp.removeAttribute('required');
+                    bcode.removeAttribute('required');
+                }
+            }  
+        </script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -38,5 +126,6 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
+        -->
     </body>
 </html>
