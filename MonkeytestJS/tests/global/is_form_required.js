@@ -3,7 +3,7 @@ registerTest ('Is form required', function () {
     .test("Is form required", function( $ ) {
       ok(true, "form is required");
       $('form').submit();
-    });
+    })
     .wait(function() {
         
         // This will be called repeatedly until it returns true, killing the wait
